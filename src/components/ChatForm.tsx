@@ -19,6 +19,7 @@ const ChatForm: FC<ChatFormProps> = memo(({onSendMessage}) => {
     try {
       await onSendMessage(author.trim(), message.trim());
       setMessage('');
+      setAuthor('');
     } catch (error) {
       console.error('Error sending message:', error);
     } finally {
