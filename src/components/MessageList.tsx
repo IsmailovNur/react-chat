@@ -1,20 +1,31 @@
+import { type FC, memo } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import MessageItem from "./MessageItem.tsx";
 import type { IMessage } from "../types.ts";
-import type { FC } from "react";
+
 
 interface MessageListProps {
   messages: IMessage[];
 }
 
-const MessageList: FC<MessageListProps> = ({messages}) => {
+const MessageList: FC<MessageListProps> = memo(({messages}) => {
   return (
-    <div>
-      {messages.map(m => <div key={m._id}>
-        <p>{m.message}</p>
-        <span>{m.datetime}</span>
-        <b>{m.author}</b>
-      </div>)}
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column-reverse',
+    }}>
+      <AnimatePresence initial={false}>
+        {messages.map((msg) => (
+          <MessageItem
+            key={msg._id}
+            author={msg.author}
+            message={msg.message}
+            datetime={msg.datetime}
+          />
+        ))}
+      </AnimatePresence>
     </div>
   );
-};
+});
 
 export default MessageList;

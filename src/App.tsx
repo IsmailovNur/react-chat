@@ -43,12 +43,12 @@ const App = () => {
       display: 'flex',
       alignItems: 'center'
     }}>
-      <Content style={{width: '100%', maxWidth: 600}}>
+      <Content style={{width: '100%', maxWidth: 900}}>
         <div style={{textAlign: 'center', marginBottom: 24}}>
           <Title level={2} style={{
             color: '#001529',
             marginBottom: 4
-          }}>Public Chatroom</Title>
+          }}>React-Chat</Title>
           <Paragraph>Ant Design & Axios | Update every 3 sec</Paragraph>
         </div>
 
